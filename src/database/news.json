@@ -1,0 +1,33 @@
+{
+    "type": "news",
+    "data": [
+        {
+            "title": "COVID-19 Update",
+            "description": "Please read for an update on case numbers, a reminder on safety measures and what the University is doing to support students in self-isolation.",
+            "date": "23 Nov 2020",
+            "link": "https://my.uea.ac.uk/news/-/article/covid-19-update",
+            "image": "https://my.uea.ac.uk/documents/20142/2336658/news-safety-first-one.jpg/06dafda6-3f54-8fa8-c554-2af911fc92bc?t=1601391613490"
+        },
+        {
+            "title": "UEA leads change in tackling racial harassment in higher education",
+            "description": "A UUK advisory group, led by Vice-Chancellor Prof David Richardson, has published a set of recommendations to tackle racial harassment, with MED cited nationally...",
+            "date": "24 Nov 2020",
+            "link": "https://my.uea.ac.uk/news/-/article/uea-leads-change-in-tackling-racial-harassment-in-higher-education",
+            "image": "https://my.uea.ac.uk/documents/20142/5699908/VCSerious.jpg/54d69816-0a5a-27cf-68d8-e4a695ec7c09?t=1606218476617"
+        },
+        {
+            "title": "Book your rapid COVID-19 test for your return home this Winter",
+            "description": "Online bookings are now open for rapid Lateral Flow (LF) COVID-19 testing so you can return home during the Government’s travel window with peace of mind that...",
+            "date": "23 Nov 2020",
+            "link": "https://my.uea.ac.uk/news/-/article/book-your-rapid-covid-19-test-for-your-return-home-this-winter",
+            "image": "https://my.uea.ac.uk/documents/20142/5699908/SportsparkMain.jpg/b2f585c0-7121-f88f-401a-da104552b9b4?t=1605009123935"
+        },
+        {
+            "title": "UEA researchers named in world’s 2020 most highly cited list",
+            "description": "Ten Norwich Research Park scientists have been named in the annual Highly Cited Researchers list for 2020, including five from the University of East Anglia.",
+            "date": "18 Nov 2020",
+            "link": "https://www.uea.ac.uk/news/-/article/uea-researchers-named-in-world-s-2020-most-highly-cited-list",
+            "image": "https://www.uea.ac.uk/documents/20142/2918899/News+-+ENV+MED+Highly+cited+researchers.jpg/3407e810-dd03-cb9e-6423-23004e093477?t=1605688580405"
+        }
+    ]
+}
