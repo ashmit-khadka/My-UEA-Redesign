@@ -10,10 +10,11 @@ import {ReactComponent as IconPencil} from '../assets/pencil.svg'
 import linksDB from '../database/links.json'
 
 const Shortcut = (props) => {
-    const img = props.link ?  <img src={'./assets/links/' + props.link.image}></img> : <IconPencil/>
+    const img = props.link ?  <img src={'./assets/links/' + props.link.image}></img> : <div className='shortcut__edit-wrapper'><IconPencil/></div>
     return (
         <div className='shortcut'>
             {img}
+           {props.link && <span>{props.link.title}</span>}
         </div>
     )
 }
@@ -39,7 +40,7 @@ const Home = () => {
                     </h2>
                     <IconInfo/>
                 </div>
-                <div className="section__content flex-row">
+                <div className="section__content shortcut-grid flex-row">
                     <Shortcut link={linksDB.data[0]}/>
                     <Shortcut link={linksDB.data[1]}/>
                     <Shortcut link={linksDB.data[2]}/>

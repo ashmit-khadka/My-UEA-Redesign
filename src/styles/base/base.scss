@@ -5,7 +5,15 @@
     font-family: 'Lora', serif;
     font-size: .9rem;
     transition: .2s ease;
-    
+    z-index: 1;
+
+    @include respond(medium) {
+        font-size: 60%;
+    }
+    @include respond(small) {
+        font-size: 57.5%;
+    }
+
 
 }
 
@@ -26,6 +34,7 @@
     max-width: 1400px;
     margin-left: auto;
     margin-right: auto;
+    padding: 0 15px;
         //background-color: lightgreen;
 
 }
@@ -44,7 +53,7 @@
 .flex-row {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;;
 }
 
 

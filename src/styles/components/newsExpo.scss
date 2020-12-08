@@ -2,9 +2,17 @@
     
     display: grid;
     width: 100%;
-    grid-template-columns: repeat(4, minmax(auto, 342px) );
-    grid-auto-rows: 250px;
-    gap: 10px;
+	grid-template-columns: repeat(4, minmax(200px, 350px) );
+    grid-auto-rows: 300px;
+	gap: 10px;
+	
+
+	@include respond(medium) {
+		grid-template-columns: repeat(2, minmax(200px, 500px) );
+    }
+    @include respond(small) {
+		grid-template-columns: repeat(auto-fit, minmax(250px, 600px) );
+    }
     
 
     &__item {
@@ -107,25 +115,60 @@
     }
 
 }
-  .one {
+
+.one {
     grid-column: 1 / 3;
     grid-row: 1 / 3;
 
   }
   .two { 
     grid-column: 3 / 4;
-    grid-row: 1;
+    grid-row: 1 / 2;
   }
   .three {
-    grid-column: 4 / 5;
-    grid-row: 1;
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
   }
   .four {
-    grid-column: 3 / 3;
-    grid-row: 2;
+    grid-column: 4 / 5;
+    grid-row: 1 / 3;
   }
-  .five {
-    grid-column: 4 / 4;
-    grid-row: 2;
-  }
- 
+
+
+@include respond(medium) {
+	.one {
+		grid-column: 1 / 3;
+		grid-row: 1 / 2;
+	
+	  }
+	  .two { 
+		grid-column: 1 / 2;
+		grid-row: 2 / 3;
+	  }
+	  .three {
+		grid-column: 2 / 3;
+		grid-row: 2 / 3;
+	  }
+	  .four {
+		grid-column: 3 / 5;
+		grid-row: 1 / 3;
+	  }
+	
+}
+@include respond(small) {
+	.one {
+		grid-column: 1 / 2;
+		grid-row: 1;	
+	  }
+	  .two { 
+		grid-column: 1 / 2;
+		grid-row: 2;
+	  }
+	  .three {
+		grid-column: 1 / 2;
+		grid-row: 3;
+	  }
+	  .four {
+		grid-column: 1 / 2;
+		grid-row: 4 / 6;
+	  }}
