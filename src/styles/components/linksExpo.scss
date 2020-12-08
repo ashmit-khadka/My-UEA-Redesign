@@ -1,0 +1,180 @@
+
+/*
+.links-expo {
+    
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 10px; 
+  width: 100%;
+
+    &__link {
+        height: 150px;
+		border-radius: 25px;
+		background-color: rgb(236, 236, 236);
+        overflow: hidden;
+		position: relative;
+		
+		& img {
+            object-fit: cover;
+			height: 100%;
+			width: 100%;
+            transition: all .4s ease-out;
+            filter: sepia(15%)
+
+        }
+        
+        &:hover {
+            cursor: pointer;
+            border-radius: 10px;
+		}
+		&__desc {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            position: absolute;
+            bottom: 0;
+            background-image: linear-gradient(180deg, rgba(153, 153, 153, 0), rgb(0, 0, 0));
+            height: 40%;
+            width: 100%;
+            padding: 8% 0;
+        }
+
+        & h3 {
+            font-size: 1.2rem;
+            color: whitesmoke;
+            padding: 0 8%;
+        }
+
+        span {
+            font-size: .9rem;
+            font-style: italic;
+            color: whitesmoke;
+            padding: 0 8%;
+        }
+
+        &:hover img {
+            transition: .4s ease;
+            transform: scale(1.03);
+        }
+
+        &:active img {
+            transition: .2s ease;
+            transform: scale(1);
+        }
+
+        &:hover h3 {
+            transition: .5s ease;
+            color: rgb(229, 160, 202);
+        }
+
+        &:hover {
+            cursor: pointer;
+            color: #E40087;
+        }
+    }
+
+
+}
+*/
+
+.links-expo {
+    
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 50px; 
+    width: 100%;
+  
+      &__link {
+          display: flex;
+          flex-direction: column;
+          //justify-content: end;
+          align-items: center;
+          //height: 150px;
+          text-align: center;
+          padding: 20px;
+          //border-radius: 15px;
+          background-color: #FFFFFD;
+          position: relative;
+          margin-top: 70px;
+          border-bottom: 2px solid rgb(0, 0, 0);
+          box-shadow:         0px 3px 15px 0px rgb(221, 221, 221);  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+
+
+          & img,
+          &__pin 
+          {
+              z-index: 3;
+              position: absolute;
+              object-fit: cover;
+              height: 150px;
+              width: 150px;
+              border-radius: 50%;
+              top: -70px;
+              transition: all .4s ease-out;
+              filter: sepia(15%)  
+          }
+
+          &__pin {
+              opacity: 0;
+              background-color: rgb(224, 224, 224);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              & .pinsvg {
+                    position: relative;;
+                    opacity: 1.3;
+                    width: 30px;
+                    height: 30px;
+                    fill: rgb(24, 24, 24);
+              }
+          }
+          
+        &:hover {
+            cursor: pointer;
+            //border-radius: 10px;
+            transform: scale(1.05);
+            //height: 300px;
+            border-bottom: 2px solid rgb(177, 40, 154);
+
+        }          
+          
+        &:hover h3 {
+            color: rgb(209, 32, 180);
+        }
+        &:hover .links-expo__link__pin {
+            opacity: .5;
+        }
+
+        & h3 {
+            //position: absolute;
+            //bottom: 30px;
+            margin-top: 80px;
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+            color: rgb(5, 5, 5);
+            padding: 0 8%;
+        }
+
+        span {
+            font-size: .9rem;
+            font-style: italic;
+            color: whitesmoke;
+            padding: 0 8%;
+        }
+
+        .dottt { 
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            top: 15px;
+            left: 15px;
+            fill: rgb(177, 40, 154);
+        }
+  
+
+      }
+  
+  
+  }
+  

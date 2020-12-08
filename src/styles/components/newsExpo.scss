@@ -1,0 +1,131 @@
+.news-expo {
+    
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(4, minmax(auto, 342px) );
+    grid-auto-rows: 250px;
+    gap: 10px;
+    
+
+    &__item {
+        background-color: hotpink;
+        height: 100%;
+        border-radius: 10px;
+        background-color: rgb(196, 196, 196);
+        overflow: hidden;
+        position: relative;
+        transition: all 1s ease-out;
+
+
+        & img {
+            object-fit: cover;
+            height: 100%;
+            transition: all .4s ease-out;
+            filter: sepia(15%)
+
+        }
+
+        &__desc {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            position: absolute;
+            bottom: -125px;
+            background-image: linear-gradient(180deg, rgba(153, 153, 153, 0), rgb(0, 0, 0));
+            height: 80%;
+            width: 100%;
+			padding: 8% 0;
+			
+
+		}
+		
+		&__social {
+            padding: 0 8%;
+		}
+
+        & h3 {
+            font-size: 1.2rem;
+            color: whitesmoke;
+            padding: 0 8%;
+        }
+
+        span {
+            font-size: .9rem;
+            font-style: italic;
+            color: whitesmoke;
+            padding: 0 8%;
+		}
+		
+		& svg {
+			height: 20px;
+			width: 20px;
+			margin-top: 10px;
+			margin-right: 10px;
+			border-radius: 50%;
+		}
+
+        p {
+			margin-top: 20px;
+            font-size: .9rem;
+            color: whitesmoke;
+            padding: 0 8%;
+        }
+
+        &:hover img {
+            transition: .4s ease;
+            transform: scale(1.03);
+        }
+
+        &:active img {
+            transition: .2s ease;
+            transform: scale(1);
+        }
+
+        &:hover h3 {
+            transition: .5s ease;
+            color: rgb(229, 160, 202);
+        }
+
+        &:hover {
+            cursor: pointer;
+            color: rgb(177, 0, 147);
+            border-bottom: 5px solid rgb(177, 0, 147);
+
+		}
+		
+		&:hover .news-expo__item__desc {
+			bottom: 0px;
+		}
+
+    }
+
+    &__main {
+        grid-column: 1 / 1;
+        grid-row: 1 / 1 ;
+        background-color: rgb(196, 196, 196);
+
+    }
+
+}
+  .one {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+
+  }
+  .two { 
+    grid-column: 3 / 4;
+    grid-row: 1;
+  }
+  .three {
+    grid-column: 4 / 5;
+    grid-row: 1;
+  }
+  .four {
+    grid-column: 3 / 3;
+    grid-row: 2;
+  }
+  .five {
+    grid-column: 4 / 4;
+    grid-row: 2;
+  }
+ 

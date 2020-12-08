@@ -2,30 +2,30 @@
     margin: 0;
     padding: 0;
     font-size: 62.5%;
-    font-family: 'Opne Sans', sans-serif;
+    font-family: 'Lora', serif;
     font-size: .9rem;
-    //transition: .2s ease;
+    transition: .2s ease;
     
 
 }
 
-.root {}
+.root {
+}
 
 .body {    
 
     //display: flex;
     //height: 100%;
     //width: 100%;
-    //background-color: #FBFBFB;
     overflow: hidden;
 
 }
 
 .content {
-    margin-left: $side-menu-size;
-    overflow-y: auto;
-    height: calc(100vh - 50px);
-
+    margin-top: 75px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
         //background-color: lightgreen;
 
 }
@@ -43,7 +43,7 @@
 
 .flex-row {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
     align-items: center;
 }
 

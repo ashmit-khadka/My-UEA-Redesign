@@ -1,0 +1,70 @@
+{
+    "type": "news",
+    "data": [
+        {
+            "title": "Covid-19 Guidance",
+            "description": "Latest information, notification form and testing.",
+            "image": "Covid-19.jpg"
+        },
+        {
+            "title": "Explore My Library",
+            "description": "Use the Library search tools, explore our services and access my Library Account for current lending and renewals.",
+            "image": "Explore-the-library-student-reading-book.jpg"
+        },
+        {
+            "title": "My Schedule and Email",
+            "description": "Access your UEA Outlook email and calendar",
+            "image": "girl-with-hearing-aid-looking-at-phone.jpg"
+        },
+        {
+            "title": "Report and Support",
+            "description": "Report an ​incident of unacceptable behaviour and to get support",
+            "image": "report-and-support.jpg"
+        },
+        {
+            "title": "UEA's Learning Portal",
+            "description": "UEA's Learning Portal in Blackboard",
+            "image": "blackboard-log-in.jpg"
+        },
+        {
+            "title": "CMP My School",
+            "description": "School of Computing Sciences",
+            "image": "COMP-SCI-school.jpg"
+        },
+        {
+            "title": "My Wellbeing",
+            "description": "Wellbeing services for students",
+            "image": "student-wellbeing-toby-and-ice.jpg"
+        },
+        {
+            "title": "CareerCentral",
+            "description": "",
+            "image": "careers-central.jpg"
+        },
+        {
+            "title": "Latest News",
+            "description": "For Students",
+            "image": "student-news2.jpg"
+        },
+        {
+            "title": "Learning and Teaching Service",
+            "description": "Change your module or seminar, how to file an EC request, how to record an absence, and checking your results.",
+            "image": "LTS-Students.jpg"
+        },
+        {
+            "title": "​Records, Timetables and Room Booking (e:Vision)",
+            "description": "Administrative student information , timetables and room booking in e:Vision",
+            "image": "evision-log-in.jpg"
+        },
+        {
+            "title": "Finance System",
+            "description": "Access UBW, the University's finance system",
+            "image": "U-B-W.jpg"
+        },
+        {
+            "title": "Faculty of Science",
+            "description": "All your Faculty support and information",
+            "image": "FAC_SCI.jpg"
+        }
+    ]
+}
