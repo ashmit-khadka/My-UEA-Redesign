@@ -1,11 +1,8 @@
 .dock {
 
-    @include respond(medium) {
-        display: none;
-    }
+
 
     position: absolute;
-    top: 0px;
     left: -220px;
     z-index: 4;
 
@@ -14,18 +11,42 @@
         top: 120px;
         z-index: 4; 
     }
+
+    @include respond(medium) {
+        background-color: #F9F9F9;
+        position: fixed;
+        bottom: 0px;
+        left: -10px;
+        width: 100vw;
+        padding: 10px;
+
+        &__content {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            top: 0px;
+        }
+    }
+
 }
 
 .dock-item {
 
     & a {
-    transition: .2s ease;
-
+        transition: .2s ease;
         font-size: 1.2rem;
         display: flex;
         align-items: center;
         color: gray;
         fill: gray; 
+
+        @include respond(medium) {
+            color: black;
+            fill: black;
+        }
+        @include respond(small) {
+            font-size: 0;
+        }
 
         &:hover {
             cursor: pointer;

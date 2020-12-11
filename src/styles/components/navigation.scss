@@ -8,6 +8,7 @@
         display: none;
         @include respond(medium) {
             display: inline;
+            width: 30px;
         }
     }
 
