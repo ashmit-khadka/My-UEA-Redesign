@@ -1,68 +1,102 @@
 {
     "type": "news",
     "data": [
-        {
-            "title": "Covid-19 Guidance",
-            "description": "Latest information, notification form and testing.",
-            "image": "Covid-19.jpg"
-        },
+
         {
             "title": "Explore My Library",
+            "category": "UEA Services",
             "description": "Use the Library search tools, explore our services and access my Library Account for current lending and renewals.",
             "image": "Explore-the-library-student-reading-book.jpg"
         },
+
+        {
+            "title": "Covid-19 Guidance",
+            "category": "Covid-19",
+            "description": "Latest information, notification form and testing.",
+            "image": "Covid-19.jpg"
+        },
+
         {
             "title": "My Schedule and Email",
+            "category": "UEA Systems",
             "description": "Access your UEA Outlook email and calendar",
             "image": "girl-with-hearing-aid-looking-at-phone.jpg"
         },
         {
             "title": "Report and Support",
+            "category": "Strudent Support",
             "description": "Report an ​incident of unacceptable behaviour and to get support",
             "image": "report-and-support.jpg"
         },
         {
             "title": "UEA's Learning Portal",
+            "category": "UEA Systems",
             "description": "UEA's Learning Portal in Blackboard",
             "image": "blackboard-log-in.jpg"
         },
         {
             "title": "CMP My School",
+            "category": "Faculties",
             "description": "School of Computing Sciences",
             "image": "COMP-SCI-school.jpg"
         },
         {
+            "title": "Covid-19 Lateral Flow Testing",
+            "category": "Covid-19",
+            "description": "COVID-19 lateral flow tests will be offered to all UEA students, and staff regularly on campus, from Sunday 29 November to Wednesday 9 December.            .",
+            "image": "Latera-testing-SP.jpg"
+        },
+        {
+            "title": "UEA Covid-19 Notification Form",
+            "category": "Covid-19",
+            "description": "Latest information, notification form and testing.",
+            "image": "Covid-19.jpg"
+        },
+        {
+            "title": "Covid-19 Checklist",
+            "category": "Covid-19",
+            "description": "Latest information, notification form and testing.",
+            "image": "Covid-19.jpg"
+        },
+        {
             "title": "My Wellbeing",
+            "category": "Strudent Support",
             "description": "Wellbeing services for students",
             "image": "student-wellbeing-toby-and-ice.jpg"
         },
         {
             "title": "CareerCentral",
+            "category": "UEA Services",
             "description": "",
             "image": "careers-central.jpg"
         },
         {
             "title": "Latest News",
+            "category": "UEA Services",
             "description": "For Students",
             "image": "student-news2.jpg"
         },
         {
             "title": "Learning and Teaching Service",
+            "category": "Strudent Support",
             "description": "Change your module or seminar, how to file an EC request, how to record an absence, and checking your results.",
             "image": "LTS-Students.jpg"
         },
         {
             "title": "​Records, Timetables and Room Booking (e:Vision)",
+            "category": "UEA Systems",
             "description": "Administrative student information , timetables and room booking in e:Vision",
             "image": "evision-log-in.jpg"
         },
         {
             "title": "Finance System",
+            "category": "UEA Services",
             "description": "Access UBW, the University's finance system",
             "image": "U-B-W.jpg"
         },
         {
             "title": "Faculty of Science",
+            "category": "Faculties",
             "description": "All your Faculty support and information",
             "image": "FAC_SCI.jpg"
         }

@@ -1,0 +1,47 @@
+.dock {
+
+    @include respond(medium) {
+        display: none;
+    }
+
+    position: absolute;
+    top: 0px;
+    left: -220px;
+    z-index: 4;
+
+    &__content {
+        position: fixed;
+        top: 120px;
+        z-index: 4; 
+    }
+}
+
+.dock-item {
+
+    & a {
+    transition: .2s ease;
+
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        color: gray;
+        fill: gray; 
+
+        &:hover {
+            cursor: pointer;
+            color: black;
+            fill: black;
+            transform: scale(1.1);
+        }            
+        &:active {
+            transform: scale(1);
+        }
+    }
+
+    & svg {
+        height: 30px;
+        width: 30px;
+        margin: 10px;
+
+    } 
+}

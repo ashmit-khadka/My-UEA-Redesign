@@ -40,15 +40,15 @@ const Navigation = () => {
     return (
         <div className="navigation">
             <div className='navigation__bar'>
+                <div className='navigation__dummy'></div>
+
                 <span className='navigation__logo'>My UEA</span>
                 <div className='navigation__links'>
-                    <a>UEA Vacancies</a>
                     <a>News</a>
-                    <a>Covid Lateral Testing</a>
+                    <a>Covid 19</a>
                     <a>Help me with</a>
                     <a>Events</a>
                     <a>Faculties and Schools</a>
-                    <a>Divisions</a>
 
                 </div>
                 <div>
@@ -69,7 +69,6 @@ const Navigation = () => {
                             <IconNight className='sidemenu__icon--theme'/>
                             <IconWheelchair className='sidemenu__icon--accessibility'/>
                             <IconLogout/>
-
                         </div>
 
                     </div>

@@ -2,6 +2,8 @@ import React from 'react'
 import newsImg from '../assets/images/news/news_4.jpg'
 import {ReactComponent as IconFacebook} from '../assets/facebook.svg'
 import {ReactComponent as IconTwitter} from '../assets/twitter.svg'
+import {ReactComponent as IconPin} from '../assets/pin.svg'
+import {ReactComponent as IconSpeak} from '../assets/volume.svg'
 
 import db from '../database/news.json'
 
@@ -10,13 +12,15 @@ const NewsExpoItem = (props) => {
     return (
         <div className='news-expo__item'>
             <img src={'./assets/news/' + props.content.image}></img>
-            <div className='news-expo__item__desc'>
+            <div className='news-expo__item__content'>
                 <span>2 days ago</span>
                 <h3>{props.content.title}</h3>
-                <p>{props.content.description}</p>
+                <p className='news-expo__item__desc'>{props.content.description}</p>
                 <div className='news-expo__item__social'>
                     <IconFacebook/>
                     <IconTwitter/>
+                    <IconPin className='news-expo__item__pin'/>
+                    <IconSpeak news-expo__item='news-expo__item__speak'/>
                 </div>
             </div>
         </div>
@@ -24,7 +28,7 @@ const NewsExpoItem = (props) => {
 }
 
 const NewsExpo = () => {
-    console.log(db.data)
+    //console.log(db.data)
     return (
         <div className="news-expo">
             <div className="one"><NewsExpoItem content={db.data[0]}/></div>

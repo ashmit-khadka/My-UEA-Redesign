@@ -1,0 +1,17 @@
+{
+    "type": "evetns",
+    "data": [
+        {
+            "title": "Holiday Hackathon Challenge 2020",
+            "date": "14 December 2020 at 10:00",
+            "description": "The University of Lincoln invites you to take part in their 'FestivePoinsettia Hackathon' Taking part in this machine learning and computervision competition, you will contribute towards building an imagerecognition system to help",
+            "location": "University of Lincoln"
+        },
+        {
+            "title": "Virtual Prostgraduate Open Event",
+            "date": "18 January 2021 at 00:00",
+            "description": "Latest information, notification form and testing.",
+            "location": "Online"
+        }
+    ]
+}

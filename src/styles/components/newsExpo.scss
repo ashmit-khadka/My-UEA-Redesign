@@ -33,21 +33,26 @@
 
         }
 
-        &__desc {
+        &__content {
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
             position: absolute;
-            bottom: -125px;
-            background-image: linear-gradient(180deg, rgba(153, 153, 153, 0), rgb(0, 0, 0));
-            height: 80%;
+            bottom: 0;
+            background-image: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5) 30%, rgba(0, 0, 0, 0.9));
+            //height: 80%;
             width: 100%;
 			padding: 8% 0;
 			
 
 		}
+
+		&__desc {
+			//display: none;
+		}
 		
 		&__social {
+			display: none;
             padding: 0 8%;
 		}
 
@@ -69,12 +74,21 @@
 			width: 20px;
 			margin-top: 10px;
 			margin-right: 10px;
-			border-radius: 50%;
+			border-radius: 5px;
+			background-color: whitesmoke;
+		}
+
+		& .news-expo__item__pin,
+		& .news-expo__item__speak {
+			padding: 5px;
+			height: 15px;
+			width: 15px;
+
 		}
 
         p {
-			margin-top: 20px;
-            font-size: .9rem;
+			margin-top: 10px;
+            font-size: 1rem;
             color: whitesmoke;
             padding: 0 8%;
         }
@@ -91,18 +105,27 @@
 
         &:hover h3 {
             transition: .5s ease;
-            color: rgb(229, 160, 202);
+			//color: rgb(182, 55, 133);
+			text-decoration: underline;
         }
 
         &:hover {
             cursor: pointer;
             color: rgb(177, 0, 147);
-            border-bottom: 5px solid rgb(177, 0, 147);
+            //border-bottom: 5px solid rgb(177, 0, 147);
 
 		}
 		
 		&:hover .news-expo__item__desc {
 			bottom: 0px;
+		}
+
+		&:hover .news-expo__item__desc {
+			display: inline;
+		}
+
+		&:hover .news-expo__item__social {
+			display: inline;
 		}
 
     }
