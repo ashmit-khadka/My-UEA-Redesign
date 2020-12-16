@@ -18,7 +18,7 @@
         bottom: 0px;
         left: -10px;
         width: 100vw;
-        padding: 10px;
+        padding: 10px 5px;
 
         &__content {
             position: relative;
@@ -32,7 +32,7 @@
 
 .dock-item {
 
-    & a {
+    &__link {
         transition: .2s ease;
         font-size: 1.2rem;
         display: flex;
@@ -65,4 +65,9 @@
         margin: 10px;
 
     } 
+
+    &--active {
+        color: rgb(207, 44, 180);
+    }
 }
+

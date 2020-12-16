@@ -97,6 +97,7 @@
     padding: 20px;
     background-color: white;
     visibility: hidden;
+    overflow-y: auto;
     //animation: animation-open-sidemenu 1s ease;
 
     &__background {
@@ -254,3 +255,25 @@
         opacity: 0;
     }
 }
+
+.sub-menu {
+    transition: .5s ease;
+    //background-color: #F9F9F9;
+    transform: scale(1);
+    overflow: hidden;
+    opacity: 1;
+    margin-left: 75px;
+
+    & a {
+        //border-left: 1px solid black;
+    }
+    border-left: 1px solid black;
+
+}
+
+.sub-menu-hide {
+    height: 0px;
+    transform: translateX(100px);
+    opacity: 0;
+}
+

@@ -6,6 +6,7 @@ import Footer from '../components/Footer'
 import Home from '../components/Home'
 import Help from '../components/Help'
 import Dock from '../components/Dock'
+import Status from '../components/Status'
 
 
 const AppRouter = () => {
@@ -14,6 +15,7 @@ const AppRouter = () => {
         <BrowserRouter>
             <Navigation/>
             <Help/>
+            <Status/>
             <div className='content'>
                 <Dock/>
 
