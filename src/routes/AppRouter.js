@@ -5,8 +5,11 @@ import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
 import Home from '../components/Home'
 import Help from '../components/Help'
+import Shortcuts from '../components/Shortcuts'
 import Dock from '../components/Dock'
+import Search from '../components/Search'
 import Status from '../components/Status'
+import Accessibility from '../components/Accessibility'
 
 
 const AppRouter = () => {
@@ -16,6 +19,10 @@ const AppRouter = () => {
             <Navigation/>
             <Help/>
             <Status/>
+            <Search/>
+            <Accessibility/>
+            <Shortcuts/>
+            
             <div className='content'>
                 <Dock/>
 

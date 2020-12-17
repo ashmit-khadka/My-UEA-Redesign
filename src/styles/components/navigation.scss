@@ -4,6 +4,26 @@
         transition: none;
     }
 
+    & button {
+        //outline: none;
+        border: none;
+        background-color: inherit;
+    }
+
+    &__dark {
+        * {
+            background-color: rgb(20, 20, 18);
+            fill: #F9F9F9;
+            color: #F9F9F9;
+        }
+
+        .navigation__bar,
+        .sidemenu {
+            background-color: rgb(20, 20, 18);
+            //box-shadow: 5px 10px 15px -3px  rgba(95, 95, 95, 0.15);
+        }
+    }
+
     &__dummy {
         display: none;
         @include respond(medium) {
@@ -12,19 +32,59 @@
         }
     }
 
-    &__bar {
+    &__more {
+        //background-color: cadetblue;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: left;
+
+        & a {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            
+            cursor: pointer;
+            & svg {
+                height: 15px;
+                width: 15px;
+            }
+
+            &:hover,
+            & svg:hover {
+                color: $main-pink;
+                fill: $main-pink;
+                .link__sum-menu {
+                    display: inline;
+                }
+            }
+        }
+
+    }
+
+    &__main {
         display: flex;
         align-items: center;
         justify-content: space-evenly;
-        padding: 0 25px;
+    }
+
+    &__bar {
+
+        padding: 5px  25px;
         z-index: 5;
         position: fixed;
         top: 0;
-        height: 70px;
+        //height: 70px;
         width: 100vw;
-        background-color: #F9F9F9;
+        background-color: $main-light;
         box-shadow: 5px 10px 15px -3px  rgba(95, 95, 95, 0.15);
-        border-bottom: 2px solid rgb(207, 44, 180);
+        border-bottom: 2px solid $main-pink;
+    }
+
+    &__control {
+        display: flex;
+        align-items: center;
     }
 
     &__logo {
@@ -37,6 +97,12 @@
         background-color: yellowgreen;
     }
 
+    img {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+    }
+
     & svg {
         height: 25px;
         width: 25px;
@@ -47,6 +113,7 @@
 
         &:hover {
             transform: scale(1.1);
+            fill: $main-pink;
         }
 
         &:active {
@@ -59,24 +126,62 @@
         font-size: 1.2rem;
         font-weight: 500;
         margin: 0 10px;
+        text-decoration: none;
+        color: inherit;
     }
 
     * {
-        padding: 0 0px;
+        //padding: 0 0px;
     }
 
     &__menu-toggle {
         
     }
 
+    &__links {
+        display: flex;
+
+        & a {
+            display: flex;
+            align-items: center;
+            flex-direction: roew;
+            //background-color: coral;
+            font-size: 1.2rem;
+
+            cursor: pointer;
+            & svg {
+                height: 15px;
+                width: 15px;
+            }
+
+            &:hover,
+            & svg:hover {
+                color: $main-pink;
+                fill: $main-pink;
+                .link__sum-menu {
+                    display: inline;
+                }
+            }
+        }
+    }
+
+    &__icon--menu { display: none; }
+
     @include respond(medium) {
-        &__links {
+        
+        &__bar {
+            padding: 15px;
+        }
+        &__links ,
+        &__icon--theme,
+        &__icon--accessibility,
+        &__icon--logout,
+        &__icon--profile,
+        &__icon--search {
             display: none;
         }
-
-        &__icon--theme,
-        &__icon--accessibility {
-            display: none;
+        &__icon--menu { 
+            display: block;
         }
     }
 }
@@ -134,7 +239,7 @@
         }
 
         &:hover {
-            color: rgb(207, 44, 180);
+            color: $main-pink;
             cursor: pointer;
             //text-decoration: underline;
         }
@@ -267,7 +372,7 @@
     & a {
         //border-left: 1px solid black;
     }
-    border-left: 1px solid black;
+    border-left: 1px solid $main-pink;
 
 }
 
@@ -277,3 +382,23 @@
     opacity: 0;
 }
 
+.link__sum-menu {
+    display: none;
+    background-color: $main-light;
+    position: absolute;
+    top: 50px;
+
+    & a:hover{
+        & div {
+            display: block;
+        }
+    }
+}
+
+.link__sum-menu-sub {
+    //display: none;
+    background-color: $main-light;
+    position: absolute;
+    top: 0px;
+    left: 100%;
+}

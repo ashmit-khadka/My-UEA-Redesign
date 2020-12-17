@@ -22,12 +22,43 @@ const navigationOptions = {
                 "Student Email Messages": {}
             },
             "Notices": {}
+        },
+        "Covid Lateral Testing": {
+            "How lateral testing works":{},
+            "Travelling after testing": {},
+            "Lateral Testing FAQs": {}
+        },
+        "Covid Testing - Placements Students": {
+            "Frequently Asked Questions": {},
+            "Step-by-step guide": {
+                "Step 1": {},
+                "Step 2": {},
+                "Step 3": {},
+                "Step 4": {},
+                "Step 5": {},
+                "Step 6": {},
+            },
+            "Consent Statement": {},
+            "Privacy Notice": {},
+            "Connecting to the VPN": {}
         }
 }
 
 const Navigation = () => {
 
     const [sidemenu, setSidemenu] = useState(false)
+    const [darkMode, setDarkMode] = useState(false)
+
+    const showShearch = () => {
+        //document.getElementById('model-search').classList.remove('model__hide')
+        document.getElementById('model-search').classList.add('model__show')
+    }
+
+
+    const showAccessibility = () => {
+        //document.getElementById('model-accessibility').classList.remove('model__hide')
+        document.getElementById('model-accessibility').classList.add('model__show')
+    }
 
     const toggleSidemenu = () => {
         if (!sidemenu)
@@ -57,6 +88,15 @@ const Navigation = () => {
     const expandSubmenu = (id) => {
         document.getElementById(id).classList.toggle('sub-menu-hide')
     }
+
+    const toggleDarkMode = () => {
+        document.getElementById('root').classList.toggle('root__dark')
+        document.getElementById('screen-home').classList.toggle('home__dark')
+        document.getElementById('navigation').classList.toggle('navigation__dark')
+        document.getElementById('links-expo').classList.toggle('links__dark')
+        setDarkMode(!darkMode)
+    }
+
     /*
     let sidemenu
     
@@ -71,59 +111,106 @@ const Navigation = () => {
     }, [])
     */
 
+    const buildLayer = (options) => {
+        let elemets = []
+        for (const [key, value] of Object.entries(options)) {
+            //console.log(`${key}: ${value}`);
+            //
+            if (typeof value === 'object' && value !== null & Object.keys(value).length > 0) {
+                const smName = key.replace(' ', '-').toLowerCase()+'-sm'
+                elemets.push(<a>{key}<IconDown onClick={() => expandSubmenu(smName)}/></a>)                
+                const subElements = buildLayer(value)
+                elemets.push(<div id={smName} className='sub-menu sub-menu-hide'>{subElements}</div>)                
+                //console.log(smName)
+            } else {
+                elemets.push(<a>{key}</a>)
+            }
+            
+        }
+        return elemets
+    }
+
+    const buildLayerMain = (options) => {
+        let elemets = []
+        for (const [key, value] of Object.entries(options)) {
+            //console.log(`${key}: ${value}`);
+            //
+            if (typeof value === 'object' && value !== null & Object.keys(value).length > 0) {
+                let group = []
+                const smName = key.replace(' ', '-').toLowerCase()+'-sm-main'
+                group.push(<a>{key}<IconDown onClick={() => expandSubmenu(smName)}/></a>)                
+                const subElements = buildLayer(value)
+                group.push(<div id={smName} className='sub-menu sub-menu-hide'>{subElements}</div>)                
+                //console.log(smName)
+
+                elemets.push(<div className='navigation__section'>{group}</div>)
+            } else {
+                elemets.push(<div className='navigation__section'><a>{key}</a></div>)
+            }
+            
+        }
+        return {elemets}
+    }
+
+    const navv = buildLayer(navigationOptions)
+    const fullNav = buildLayerMain(navigationOptions)
+
+    //console.log('nav', navv)
+
+
     return (
-        <div className="navigation">
+        <div id='navigation' className="navigation">
             <div className='navigation__bar'>
-                <div className='navigation__dummy'></div>
+                <div className='navigation__main'>
+                    <div className='navigation__dummy'>
+                        <IconSearch className='navigation__icon--search-main' onClick={showShearch}/>
+                    </div>
 
-                <span className='navigation__logo'>My UEA</span>
-                <div className='navigation__links'>
-                    <a>News</a>
-                    <a>Covid 19</a>
-                    <a>Help me with</a>
-                    <a>Events</a>
-                    <a>Faculties and Schools</a>
+                    <span className='navigation__logo'>My UEA</span>
+                    <div className='navigation__links'>
+                        <a href='#'>Covid 19<IconDown/></a>
+                        
+                        <a href='#'>News<IconDown/></a>
+                        <a href='#'>Social<IconDown/></a>
+                        <a href='#'>Learn<IconDown/></a>
+                        <a href='#'>Help<IconDown/></a>                    
+                    </div>
+                    <div className='navigation__control'>
+                        <button><IconSearch href='#' className='navigation__icon--search' onClick={showShearch}/></button>
 
+                        <IconNight className='navigation__icon--theme' onClick={toggleDarkMode}/>
+                        <IconWheelchair className='navigation__icon--accessibility' onClick={showAccessibility}/>
+                        <IconMenu className='navigation__icon--menu' onClick={toggleSidemenu}/>
+                        <IconLogout className='navigation__icon--logout'/>
+                        <img className='navigation__icon--profile' src='./assets/profile/profile-pic.jpg' ></img>
+
+                    </div>
                 </div>
-                <div>
-                    <IconSearch/>
 
-                    <IconNight className='navigation__icon--theme'/>
-                    <IconWheelchair className='navigation__icon--accessibility'/>
-                    <IconMenu onClick={toggleSidemenu}/>
+
+                <div className='navigation__more'>
                 </div>
             </div>
+
+   
+
 
             <div id='sidemenu__background' className='sidemenu__background'>
                 <div id='sidemenu' className='sidemenu'>
                     <div className='sidemenu__control'><IconClose onClick={toggleSidemenu}/></div>
                     <div className='sidemenu__profile'>
                         <img src='./assets/profile/profile-pic.jpg' ></img>
-                        <span className='sidemenu__profile--name'>Ashmit Khadka</span>
+                        <span className='sidemenu__profile--name'>Nathan Redmond</span>
                         <span className='sidemenu__profile--info'>Computing Science (CMP)</span>
                         <div>
                             <IconNight className='sidemenu__icon--theme'/>
-                            <IconWheelchair className='sidemenu__icon--accessibility'/>
+                            <IconWheelchair className='sidemenu__icon--accessibility' onClick={showAccessibility}/>
                             <IconLogout/>
                         </div>
                     </div>
 
-                    <a><IconPin className='pin-link'/> My Dashboard</a>
-                    <a><IconPin className='pin-link'/>UEA Vacancies</a>
-                        <a><IconPin className='pin-link'/>News<IconDown onClick={() => expandSubmenu("news-sub-items")}/></a>
-                        <div id='news-sub-items' className='sub-menu sub-menu-hide'>
-                            <a>Latest News</a>
-                            <a>Staff<IconDown onClick={() => expandSubmenu("news-staff-sub-items")}/></a>
-                            <div id='news-staff-sub-items' className='sub-menu sub-menu-hide'>
-                                <a>Staff Email Messages</a>
-                            </div>
-                            <a>Students<IconDown onClick={() => expandSubmenu("news-students-sub-items")}/></a>
-                            <div id='news-students-sub-items' className='sub-menu sub-menu-hide'>
-                                <a>Student Email Messages</a>
-                            </div>
-                            <a>Notices</a>
-                            <a>Item C</a>
-                        </div>
+
+                    {navv}
                     <a><IconPin className='pin-link'/>Covid Lateral Testing<IconDown/></a>
                     <a><IconPin className='pin-link'/>Covid Testing - Placement Students<IconDown/></a>
                     <a><IconPin className='pin-link'/>Help Me With<IconDown/></a>
@@ -135,6 +222,8 @@ const Navigation = () => {
                     <a><IconPin className='pin-link'/>Communities<IconDown/></a>
                     <a><IconPin className='pin-link'/>Directories<IconDown/></a>
                     <a><IconPin className='pin-link'/>Campus Map<IconDown/></a>
+
+                
                 </div>
             </div>
         </div>

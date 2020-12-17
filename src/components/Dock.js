@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {ReactComponent as IconShortcut} from '../assets/molecular.svg'
 import {ReactComponent as IconNewspaper} from '../assets/newspaper.svg'
 import {ReactComponent as IconForeign} from '../assets/foreign.svg'
@@ -33,8 +33,8 @@ const sections = [
 const DockItem = (props) => {
 
     const [style, setStyle] = useState('')
-    const section = document.getElementById(props.section);
-
+    let section = null
+    //console.log(section.offsetTop)
     const scroll = () => {
         const sectionPosition = section.offsetTop;
         window.scrollTo({
@@ -43,29 +43,21 @@ const DockItem = (props) => {
         });
     }
 
+
+    useEffect(() => {
+        section = document.getElementById(props.section);
+    }, [])
+
+
     return (
         <div className='dock-item'>
-            <a id={props.id + '-link'} className='dock-item__link dock-item--active' onClick={scroll}>{props.icon}{props.title}</a>
+            <button id={props.id + '-link'} className='dock-item__link dock-item--active' onClick={scroll}>{props.icon}{props.title}</button>
         </div>
     )
 }
 
 const Dock = () => {
 
-    const elements = [
-        sections.map(section => 
-            document.getElementById(section.id)
-        )
-    ]
-
-    console.log(elements)
-    window.onscroll = () => {
-        //console.log('scolling..', window.scrollY)
-        elements.forEach((section, index) => {
-                console.log(index)
-            
-        })
-    };
 
     return (
         <div className='dock'>

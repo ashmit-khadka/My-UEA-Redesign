@@ -78,7 +78,7 @@ const NewsExpo = () => {
             <div className="two"><NewsExpoItem content={db.data[1]}/></div>
             <div className="three"><NewsExpoItem content={db.data[2]}/></div>
             <div className="four">
-                <a className="twitter-timeline" data-height="100%" data-theme="light" href="https://twitter.com/uniofeastanglia?ref_src=twsrc%5Etfw">Tweets by uniofeastanglia</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <a className="twitter-timeline" data-height="100%" data-theme="light" href="https://twitter.com/uniofeastanglia?ref_src=twsrc%5Etfw">Tweets by uniofeastanglia</a> <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
             </div>
         </div>
     )

@@ -1,23 +1,51 @@
+.react-loading-skeleton {
+    width: 100%
+}
+
 .status {
     display: flex;
     align-items: center;
     gap: 10px;
     padding: 10px;
-    z-index: 5;
+    z-index: 15;
     position: fixed;
-    bottom: 50px;
+    bottom: -50px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: hotpink;
+    //background-color: hotpink;
     border-radius: 10px;
+    //animation: status-open 5s ease;
 
     & span {
-        font-size: 1rem;
+        font-size: 1.2rem;
+        //font-weight: bold;
     }
 
     & svg {
+        
         height: 15px;
         width: 15px;
     }
 
+    &__show {
+        bottom: 50px;
+        animation: status-open .5s ease;
+        background-color: greenyellow;
+    }
 }
+
+
+
+@keyframes status-open {
+    0% {
+        opacity: 0;
+        bottom: -50px;
+
+    }
+
+    100% {
+        opacity: 1;
+        bottom: 50px
+    }
+}
+

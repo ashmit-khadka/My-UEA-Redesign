@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {ReactComponent as IconClose} from '../assets/close.svg'
 import {ReactComponent as IconNext} from '../assets/next.svg'
 import {ReactComponent as IconBack} from '../assets/back.svg'
@@ -39,9 +39,18 @@ const Help = () =>
     const helpType = useSelector(state => state.HelpReducer)
     const dispatch = useDispatch()
 
+    useEffect(() => {
+        document.getElementById("model-help").addEventListener("click", function( e ){
+            e = window.event || e; 
+            if(this === e.target) {
+                hide()
+            }
+        });    
+    }, [])
+
     const hide = () => 
     {
-        document.getElementById('model-help').classList.add('model__hide')
+        document.getElementById('model-help').classList.remove('model__show')
     }
 
 
@@ -84,7 +93,7 @@ const Help = () =>
     const nextHelpText = <span>{}</span>
 
     return (
-        <div id='model-help' className='model model__hide'>
+        <div id='model-help' className='model'>
             <div className='model__content'>
                 <div className='model__controls'>
                     <IconClose className='button' onClick={hide}/>
@@ -99,7 +108,7 @@ const Help = () =>
                         {
                             Object.keys(helpContent).map(index => {
                                 console.log()
-                                return <IconDot className={context.current == index ? 'button model__help__dot model__help__dot--active' : 'button model__help__dot'}/>
+                                return <IconDot key={index} className={context.current == index ? 'button model__help__dot model__help__dot--active' : 'button model__help__dot'}/>
                             })
                         }
                         {nextButton()}

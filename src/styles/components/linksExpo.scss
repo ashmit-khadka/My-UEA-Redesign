@@ -22,6 +22,19 @@
     &__category:not(first-child) {
         margin-top: 50px;
     }
+
+    &__dark {
+
+        .links-expo__link {
+            background-color: $main-dark;
+            box-shadow:         0px 3px 15px 0px rgb(0, 0, 0);  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+            
+            * {
+                color: $main-light;
+            }
+        }
+    }
+    
 }
 
 .links-expo {
@@ -105,7 +118,7 @@
             margin-top: 80px;
             margin-bottom: 5px;
             font-size: 1.2rem;
-            color: rgb(5, 5, 5);
+            //color: rgb(5, 5, 5);
             padding: 0 8%;
             transition: 0s;
 

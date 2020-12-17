@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 //redux
 import { useSelector, useDispatch } from 'react-redux';
 import { addShortCut, setShortCut, removeShortCut } from '../redux/actions/ShortcutActions'
@@ -17,7 +17,7 @@ const Shortcut = (props) => {
         }))
     }
 
-    console.log(props.data)
+    //console.log(props.data)
     return (
         <div className='model__shortcut'>
             <div className='model__shortcut__content'>
@@ -58,19 +58,28 @@ const Shortcuts = () => {
     }
     */
 
+   useEffect(() => {
+        document.getElementById("model-shortcut").addEventListener("click", function( e ){
+            e = window.event || e; 
+            if(this === e.target) {
+                hide()
+            }
+        });    
+    }, [])
+
     const hide = () => {
-        document.getElementById('shortcut__model').classList.add('model__hide')
+        document.getElementById('model-shortcut').classList.remove('model__show')
     }
 
     return (
-        <div id='shortcut__model' className='model model__hide'>
+        <div id='model-shortcut' className='model model__hide'>
             <div className='model__content'>
                 <div className='model__controls'>
                     <IconClose className='button' onClick={hide}/>
                 </div>
                 {
-                    shortcuts.map(shortcut => {
-                        return <Shortcut data={shortcut}/>
+                    shortcuts.map((shortcut, index) => {
+                        return <Shortcut key={index} data={shortcut}/>
                     })
                 }
                 {!shortcuts.length && <p className='model__shortcut__msg-none'>Looks like you dont have any shortcuts!</p> }
