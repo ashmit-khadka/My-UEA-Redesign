@@ -14,24 +14,48 @@ const helpContent = {
     "SHORTCUT": {
         "title": "My Shortcuts",
         "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dapibus metus ut lorem dictum commodo. Sed convallis, orci sed imperdiet congue, mi erat maximus purus, ut mattis eros sem congue nisl. Duis eget leo eget ipsum vehicula congue. Nullam nibh sapien, pellentesque quis placerat ac, volutpat in dui. Ut non eros nulla. Maecenas volutpat quam augue, consectetur dignissim orci cursus vitae. Etiam placerat ex mollis finibus malesuada. Nulla facilisi. Sed in sem quis justo vulputate pretium.",
-        "action": setHelpShortcut
+        "action": setHelpShortcut,
+        "id": "section-shortcuts",
     },
     "PORTAL": {
         "title": "Portal",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dapibus metus ut lorem dictum commodo. Sed convallis, orci sed imperdiet congue, mi erat maximus purus, ut mattis eros sem congue nisl. Duis eget leo eget ipsum vehicula congue. Nullam nibh sapien, pellentesque quis placerat ac, volutpat in dui. Ut non eros nulla. Maecenas volutpat quam augue, consectetur dignissim orci cursus vitae. Etiam placerat ex mollis finibus malesuada. Nulla facilisi. Sed in sem quis justo vulputate pretium.",
-        "action": setHelpProtal
+        "text": "Eu mi bibendum neque egestas congue quisque. Pretium lectus quam id leo in vitae turpis. Aliquam eleifend mi in nulla posuere. Sociis natoque penatibus et magnis dis. Tempus urna et pharetra pharetra massa massa. Tellus integer feugiat scelerisque varius morbi. Facilisi cras fermentum odio eu. Platea dictumst quisque sagittis purus sit amet volutpat. Et magnis dis parturient montes nascetur. Rhoncus urna neque viverra justo nec ultrices dui.        ",
+        "action": setHelpProtal,
+        "id": "section-portal",
     },
     "NEWS": {
         "title": "News",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dapibus metus ut lorem dictum commodo. Sed convallis, orci sed imperdiet congue, mi erat maximus purus, ut mattis eros sem congue nisl. Duis eget leo eget ipsum vehicula congue. Nullam nibh sapien, pellentesque quis placerat ac, volutpat in dui. Ut non eros nulla. Maecenas volutpat quam augue, consectetur dignissim orci cursus vitae. Etiam placerat ex mollis finibus malesuada. Nulla facilisi. Sed in sem quis justo vulputate pretium.",
-        "action": setHelpNews
+        "text": "Consequat mauris nunc congue nisi. Dui faucibus in ornare quam viverra orci sagittis eu. Ullamcorper malesuada proin libero nunc consequat interdum. Pulvinar elementum integer enim neque volutpat ac tincidunt vitae semper. Risus nullam eget felis eget nunc lobortis mattis. Erat nam at lectus urna. Facilisi etiam dignissim diam quis enim. Sagittis vitae et leo duis ut diam quam. Cursus vitae congue mauris rhoncus aenean vel elit scelerisque mauris. Facilisis volutpat est velit egestas dui id ornare arcu. Metus dictum at tempor commodo ullamcorper. Et ultrices neque ornare aenean euismod elementum. Sapien nec sagittis aliquam malesuada. Tellus at urna condimentum mattis. Vulputate odio ut enim blandit volutpat maecenas. Egestas congue quisque egestas diam in. Fermentum iaculis eu non diam. Quis hendrerit dolor magna eget.",
+        "action": setHelpNews,
+        "id": "section-news",
     },
     "EVENTS": {
         "title": "Events",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dapibus metus ut lorem dictum commodo. Sed convallis, orci sed imperdiet congue, mi erat maximus purus, ut mattis eros sem congue nisl. Duis eget leo eget ipsum vehicula congue. Nullam nibh sapien, pellentesque quis placerat ac, volutpat in dui. Ut non eros nulla. Maecenas volutpat quam augue, consectetur dignissim orci cursus vitae. Etiam placerat ex mollis finibus malesuada. Nulla facilisi. Sed in sem quis justo vulputate pretium.",
-        "action": setHelpEvents
+        "text": "Accumsan lacus vel facilisis volutpat est velit egestas dui id. Porttitor eget dolor morbi non. Ac feugiat sed lectus vestibulum mattis. Bibendum arcu vitae elementum curabitur vitae nunc sed. Lacinia at quis risus sed vulputate odio ut. Felis donec et odio pellentesque diam volutpat commodo sed egestas. Quis imperdiet massa tincidunt nunc pulvinar. Non nisi est sit amet facilisis magna. Dis parturient montes nascetur ridiculus mus. Venenatis a condimentum vitae sapien pellentesque habitant. Odio eu feugiat pretium nibh ipsum consequat nisl vel pretium. Purus in massa tempor nec feugiat nisl pretium fusce id. Vitae tempus quam pellentesque nec nam. Etiam tempor orci eu lobortis. In pellentesque massa placerat duis ultricies lacus. Id ornare arcu odio ut sem.",
+        "action": setHelpEvents,
+        "id": "section-events",
     }
 }
+
+const sections = [
+    {
+        "title": "My Shortcuts",
+        "id": "section-shortcuts",
+
+    },    
+    {
+        "title": "Portal",
+        "id": "section-portal",
+    },
+    {
+        "title": "Latest News",
+        "id": "section-news",
+    },
+    {
+        "title": "Evetns",
+        "id": "section-events",
+    },
+]
 
 
 const Help = () => 
@@ -70,7 +94,7 @@ const Help = () =>
 
     const nextButton = () => {
         if (nextType !== undefined) {
-            return <button onClick={() => dispatch(helpContent[nextType].action())}>{helpContent[nextType].title}<IconNext className='button'/></button>
+            return <button onClick={() => {dispatch(helpContent[nextType].action()); scroll(nextType) }}>{helpContent[nextType].title}<IconNext className='button'/></button>
         }
         return <button><IconNext className='button button--disabled'/></button>
 
@@ -78,14 +102,21 @@ const Help = () =>
 
     const previousButton = () => {
         if (previousType !== undefined) {
-            return <button onClick={() => dispatch(helpContent[previousType].action())}><IconBack className='button'/>{helpContent[previousType].title}</button>
+            return <button onClick={() => {dispatch(helpContent[previousType].action()); scroll(previousType)}}><IconBack className='button'/>{helpContent[previousType].title}</button>
         }
         return <button><IconBack className='button button--disabled'/></button>
 
     }
 
 
-        
+    const scroll = (newType) => {
+        const section = document.getElementById(helpContent[newType].id);
+        const sectionPosition = section.offsetTop;
+        window.scrollTo({
+            top: sectionPosition-100,
+            behavior: "smooth"
+        });
+    }
 
 
     //const getNextHelp(helpType)

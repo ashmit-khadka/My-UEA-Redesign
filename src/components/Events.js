@@ -11,6 +11,26 @@ import eventDB from '../database/events.json'
 import { useSelector, useDispatch } from 'react-redux';
 import { setStatus } from '../redux/actions/StatusActions'
 
+const sections = [
+    {
+        "title": "My Shortcuts",
+        "id": "section-shortcuts",
+
+    },    
+    {
+        "title": "Portal",
+        "id": "section-portal",
+    },
+    {
+        "title": "Latest News",
+        "id": "section-news",
+    },
+    {
+        "title": "Evetns",
+        "id": "section-events",
+    },
+]
+
 const Event = (props) => {
 
     const [pinned, setPinned] = useState(false)
@@ -38,7 +58,13 @@ const Event = (props) => {
 
     }
 
+    const speak = () => {
+        const title = new SpeechSynthesisUtterance(props.content.title);
+        const description = new SpeechSynthesisUtterance(props.content.description);
+        window.speechSynthesis.speak(title);
+        window.speechSynthesis.speak(description);
 
+    }
 
     return (
         <div className='event'>

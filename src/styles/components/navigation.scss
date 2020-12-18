@@ -22,6 +22,9 @@
             background-color: rgb(20, 20, 18);
             //box-shadow: 5px 10px 15px -3px  rgba(95, 95, 95, 0.15);
         }
+        .bar-link__links {
+            background-color: rgb(20, 20, 18);
+        }
     }
 
     &__dummy {
@@ -204,6 +207,10 @@
     visibility: hidden;
     overflow-y: auto;
     //animation: animation-open-sidemenu 1s ease;
+
+    &__gap {
+        margin-bottom: 50px;
+    }
 
     &__background {
         position: fixed;
@@ -437,4 +444,12 @@
 
 .bar-show {
     display: block;
+}
+
+.flexi{
+    display: flex;
+    gap: 30px;
+    & p {
+        margin-bottom: 10px;
+    }
 }

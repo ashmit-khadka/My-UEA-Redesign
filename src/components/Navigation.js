@@ -144,6 +144,10 @@ const Navigation = () => {
         document.getElementById('navigation').classList.toggle('navigation__dark')
         document.getElementById('links-expo').classList.toggle('links__dark')
         document.getElementById('dock').classList.toggle('dock__dark')
+        document.getElementById('model-help').classList.toggle('model__dark')
+        document.getElementById('model-search').classList.toggle('model__dark')
+        document.getElementById('model-shortcut').classList.toggle('model__dark')
+        document.getElementById('model-accessibility').classList.toggle('model__dark')
         //setDarkMode(!darkMode)
         darkMode = !darkMode
         dispatch(setStatus({
@@ -196,7 +200,7 @@ const Navigation = () => {
             if (menus.includes(key))
             {
                 if (typeof value === 'object' && value !== null & Object.keys(value).length > 0) {
-                    const smName = key.replace(' ', '-').toLowerCase()+'-sm'
+                    const smName = key.replace(' ', '-').toLowerCase()+'-smmm'
                     elemets.push(<a>{key}<IconDown onClick={() => expandSubmenu(smName)}/></a>)                
                     const subElements = buildLayer(value)
                     elemets.push(<div id={smName} className='sub-menu sub-menu-hide'>{subElements}</div>)                
@@ -331,10 +335,9 @@ const Navigation = () => {
                     </div>
 
 
-                    {navv}
+                        {navv}
               
-                    <a><IconPin className='pin-link'/>Campus Map<IconDown/></a>
-
+                    <div className='sidemenu__gap'></div>
                 
                 </div>
             </div>

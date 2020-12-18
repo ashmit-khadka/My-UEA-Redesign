@@ -23,7 +23,7 @@ const sections = [
         "icon": <IconNewspaper/>
     },
     {
-        "title": "Evetns",
+        "title": "Events",
         "id": "section-events",
         "icon": <IconEvents/>
     },
@@ -38,7 +38,7 @@ const DockItem = (props) => {
     const scroll = () => {
         const sectionPosition = section.offsetTop;
         window.scrollTo({
-            top: sectionPosition,
+            top: sectionPosition-100,
             behavior: "smooth"
         });
     }

@@ -6,6 +6,7 @@ import {ReactComponent as IconPin} from '../assets/pin.svg'
 import {ReactComponent as IconClose} from '../assets/close.svg'
 import {ReactComponent as IconInfomation} from '../assets/information.svg'
 import { setHelpShortcut, setHelpEvents } from '../redux/actions/HelpActions'
+import { setStatus } from '../redux/actions/StatusActions'
 
 
 const Shortcut = (props) => {
@@ -17,22 +18,38 @@ const Shortcut = (props) => {
             "title": props.data.title,
             "type": props.data.type
         }))
+
+        dispatch(setStatus({
+            'text': 'Removed shortcut ' + props.data.title,
+            'action': () => {
+                dispatch(() => {})
+            }
+        }))
     }
 
+
+    
     //console.log(props.data)
     let type = ''
     if (props.data.type === 'link') {
-        <p className='element-text--portal'>{props.data.type}</p>
+        type = <span className='element-text--portal'>Link</span>
+    }
+    if (props.data.type === 'news') {
+        type = <span className='element-text--news'>News</span>
     }
 
     return (
         <div className='model__shortcut'>
             <div className='model__shortcut__content'>
+                <div className='flexi'>
                 <img src={'./assets' + props.data.imagePath + props.data.image}></img>
                 <div className='model__shortcut__content__text'>
                     <p>{props.data.title}</p>
+                    {type}
                 </div>
-                <IconPin className='button--large' onClick={removeShortcutAction}/>
+                </div>
+
+                <IconPin className='button--large model__shortcut--pinned' onClick={removeShortcutAction}/>
 
             </div>
 

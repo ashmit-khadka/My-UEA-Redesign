@@ -1,5 +1,11 @@
 .footer {
     margin-top: 50px;
-    height: 500px;
+    height: 200px;
     background-color: rgb(10, 5, 29);
+
+    & p {
+        padding: 30px;
+        text-align: center;
+        color: $main-light;
+    }
 }

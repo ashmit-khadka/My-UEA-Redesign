@@ -73,7 +73,7 @@ const Home = () => {
                     <IconQuoteEnd className='home__welcome__quote-end'/>
                     <span className='home__welcome-quote'>{
                         loading ? <Skeleton width={1000} /> :
-                        'This is some random inspirational quote that will brighten up mood and create some kind of motivation. - Ash'
+                        'All our knowledge begins with the senses, proceeds then to the understanding, and ends with reason. \nThere is nothing higher than reason. –Immanuel Kant'
                     }</span>
 
                 </div>
@@ -83,7 +83,7 @@ const Home = () => {
 
                     <h2 className='section--shortcuts'>My Shortcuts
                     </h2>
-                    <IconInfo onClick={() => showHelp(setHelpShortcut)}/>
+                    <IconInfo className='button' onClick={() => showHelp(setHelpShortcut)}/>
                 </div>
                 <div className="section__content shortcut-grid flex-row">
                     {
@@ -100,7 +100,7 @@ const Home = () => {
                 <div className='section__header'>
                     <h2 className='section--portal'>Portal
                     </h2>
-                    <IconInfo onClick={() => showHelp(setHelpProtal)}/>
+                    <IconInfo className='button' onClick={() => showHelp(setHelpProtal)}/>
                 </div>
                 <div className="section__content">
                     <LinksExpo/>
@@ -111,7 +111,7 @@ const Home = () => {
                 <div className='section__header'>
                     <h2 className='section--news'>Latest News
                     </h2>
-                    <IconInfo onClick={() => showHelp(setHelpNews)}/>
+                    <IconInfo className='button' onClick={() => showHelp(setHelpNews)}/>
                 </div>
                 <div className="section__content">
                     <NewsExpo/>
@@ -121,7 +121,7 @@ const Home = () => {
                 <div className='section__header'>
                     <h2 className='section--events'>Events
                     </h2>
-                    <IconInfo onClick={() => showHelp(setHelpEvents)}/>
+                    <IconInfo className='button' onClick={() => showHelp(setHelpEvents)}/>
                 </div>
                 <div className="section__content">
                     <Evetns/>
