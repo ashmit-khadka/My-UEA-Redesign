@@ -8,6 +8,9 @@ import {ReactComponent as IconLogout} from '../assets/logout.svg'
 import {ReactComponent as IconClose} from '../assets/close.svg'
 import {ReactComponent as IconNode} from '../assets/node.svg'
 import {ReactComponent as IconSearch} from '../assets/loupe.svg'
+//redux
+import { useSelector, useDispatch } from 'react-redux';
+import { setStatus } from '../redux/actions/StatusActions'
 
 
 const navigationOptions = {
@@ -41,13 +44,57 @@ const navigationOptions = {
             "Consent Statement": {},
             "Privacy Notice": {},
             "Connecting to the VPN": {}
-        }
+        },
+        "Help Me With": {
+            "Introduction to My.UEA": {},
+            "My Wellbeing": {
+                "Students": {},
+                "Staff": {}
+            },
+            "Being a New Student": {},
+            "Being a New Staff Member": {},
+            "Learning": {}
+        },
+        "Events": {
+            "Listing": {}
+        },
+        " Vice-Chancellor's Office": {
+            "Vice-Chancellor": {},
+            "The Executive Team": {}
+        },
+        "Faculties and Schools": {
+            "Faculty of Arts and Humanities": {},
+            "Faculty of Medicine and Health Sciences": {},
+            "Faculty of Science": {},
+            "Faculty of Social Sciences": {}
+        },
+        "Divisions and Services": {
+            "Admissions, Recruitment and Marketing": {},
+            "Development, Partnerships and Music Centre": {},
+            "Estates": {}
+        },
+        "UEA Systems": {
+            "Attendance": {},
+            "Outlook": {},
+            "Office 365": {},
+            "Blackboard": {},
+            "e:Vision": {}
+        },
+        "Log an IT Call": {},
+        "Communities": {
+            "RESNET": {},
+            "RSConnect": {},
+            "Retirement Association": {}
+        },
+        "Directories": {},
+        "Campus Map": {},
 }
-
+let darkMode = false
 const Navigation = () => {
+    const dispatch = useDispatch()
 
     const [sidemenu, setSidemenu] = useState(false)
-    const [darkMode, setDarkMode] = useState(false)
+    //const [darkMode, setDarkMode] = useState(false)
 
     const showShearch = () => {
         //document.getElementById('model-search').classList.remove('model__hide')
@@ -56,6 +103,7 @@ const Navigation = () => {
 
 
     const showAccessibility = () => {
+        if (sidemenu) toggleSidemenu()
         //document.getElementById('model-accessibility').classList.remove('model__hide')
         document.getElementById('model-accessibility').classList.add('model__show')
     }
@@ -90,12 +138,23 @@ const Navigation = () => {
     }
 
     const toggleDarkMode = () => {
+        if (sidemenu) toggleSidemenu()
         document.getElementById('root').classList.toggle('root__dark')
         document.getElementById('screen-home').classList.toggle('home__dark')
         document.getElementById('navigation').classList.toggle('navigation__dark')
         document.getElementById('links-expo').classList.toggle('links__dark')
-        setDarkMode(!darkMode)
+        document.getElementById('dock').classList.toggle('dock__dark')
+        //setDarkMode(!darkMode)
+        darkMode = !darkMode
+        dispatch(setStatus({
+            'text': darkMode ? 'Dark Mode Enabled' : 'Light Mode Enabled',
+            'action': () => {
+                toggleDarkMode()
+            }
+        }))
+
     }
+
 
     /*
     let sidemenu
@@ -130,33 +189,67 @@ const Navigation = () => {
         return elemets
     }
 
-    const buildLayerMain = (options) => {
+    const buildLayerMain = (options, menus) => {
         let elemets = []
         for (const [key, value] of Object.entries(options)) {
-            //console.log(`${key}: ${value}`);
-            //
-            if (typeof value === 'object' && value !== null & Object.keys(value).length > 0) {
-                let group = []
-                const smName = key.replace(' ', '-').toLowerCase()+'-sm-main'
-                group.push(<a>{key}<IconDown onClick={() => expandSubmenu(smName)}/></a>)                
-                const subElements = buildLayer(value)
-                group.push(<div id={smName} className='sub-menu sub-menu-hide'>{subElements}</div>)                
-                //console.log(smName)
-
-                elemets.push(<div className='navigation__section'>{group}</div>)
-            } else {
-                elemets.push(<div className='navigation__section'><a>{key}</a></div>)
+            console.log(`options: ${menus} for : ${key} is.. ${menus.includes(key)}`);
+            if (menus.includes(key))
+            {
+                if (typeof value === 'object' && value !== null & Object.keys(value).length > 0) {
+                    const smName = key.replace(' ', '-').toLowerCase()+'-sm'
+                    elemets.push(<a>{key}<IconDown onClick={() => expandSubmenu(smName)}/></a>)                
+                    const subElements = buildLayer(value)
+                    elemets.push(<div id={smName} className='sub-menu sub-menu-hide'>{subElements}</div>)                
+                    //console.log(smName)
+                } else {
+                    elemets.push(<a>{key}</a>)
+                }
             }
             
         }
-        return {elemets}
+        return elemets
     }
 
     const navv = buildLayer(navigationOptions)
-    const fullNav = buildLayerMain(navigationOptions)
+    const navCovid = buildLayerMain(navigationOptions, [
+        "Covid Lateral Testing",
+        "Covid Testing - Placements Students",
+    ])
+
+    const navNews = buildLayerMain(navigationOptions, [
+        "News",
+        "Vacancies",
+        "Directories",
+    ])
+
+    const navSocial = buildLayerMain(navigationOptions, [
+        "Events",
+        "Communities",
+    ])
+
+    const navLearn = buildLayerMain(navigationOptions, [
+        "UEA Systems",
+        "Vice-Chancellor's Office",
+        "Faculties and Schools",
+        "Divisions and Services",
+    ])
+
+    const navHelp = buildLayerMain(navigationOptions, [
+        "Help Me With",
+        "Log an IT Call",
+        "Campus Map"
+    ])
 
     //console.log('nav', navv)
+    const showSection = (id) => {
+        //console.log('hi...')
+        document.getElementById(id).classList.add('bar-show')
+    }
 
+    const hideSection = (id) => {
+        //console.log('hi...')
+        document.getElementById(id).classList.remove('bar-show')
+    }
 
     return (
         <div id='navigation' className="navigation">
@@ -168,12 +261,40 @@ const Navigation = () => {
 
                     <span className='navigation__logo'>My UEA</span>
                     <div className='navigation__links'>
-                        <a href='#'>Covid 19<IconDown/></a>
-                        
-                        <a href='#'>News<IconDown/></a>
-                        <a href='#'>Social<IconDown/></a>
-                        <a href='#'>Learn<IconDown/></a>
-                        <a href='#'>Help<IconDown/></a>                    
+                        <div className='bar-link' onMouseEnter={() => showSection('bar-covid')} onMouseLeave={() => hideSection('bar-covid')}>
+                            <a href='#'>Covid 19<IconDown/></a> 
+                            <div id={'bar-covid'} className='bar-link__links' onMouseLeave={() => hideSection('bar-covid')} onMouseEnter={() => showSection('bar-covid')} >
+                                {navCovid}
+                            </div>
+                        </div>
+
+                        <div className='bar-link' onMouseEnter={() => showSection('bar-News')} onMouseLeave={() => hideSection('bar-News')}>
+                            <a href='#'>News<IconDown/></a> 
+                            <div id={'bar-News'} className='bar-link__links' onMouseLeave={() => hideSection('bar-News')} onMouseEnter={() => showSection('bar-News')} >
+                                {navNews}
+                            </div>
+                        </div>
+
+                        <div className='bar-link' onMouseEnter={() => showSection('bar-Social')} onMouseLeave={() => hideSection('bar-Social')} >
+                            <a href='#'>Social<IconDown/></a> 
+                            <div id={'bar-Social'} className='bar-link__links' onMouseLeave={() => hideSection('bar-Social')} onMouseEnter={() => showSection('bar-Social')}>
+                                {navSocial}
+                            </div>
+                        </div>
+
+                        <div className='bar-link' onMouseEnter={() => showSection('bar-Learn')} onMouseLeave={() => hideSection('bar-Learn')}>
+                            <a href='#'>Learn<IconDown/></a> 
+                            <div id={'bar-Learn'} className='bar-link__links' onMouseLeave={() => hideSection('bar-Learn')} onMouseEnter={() => showSection('bar-Learn')}>
+                                {navLearn}
+                            </div>
+                        </div>
+
+                        <div className='bar-link' onMouseEnter={() => showSection('bar-help')} onMouseLeave={() => hideSection('bar-help')}>
+                            <a href='#'>Help<IconDown/></a> 
+                            <div id={'bar-help'} className='bar-link__links' onMouseLeave={() => hideSection('bar-help')} onMouseEnter={() => showSection('bar-help')}>
+                                {navHelp}
+                            </div>
+                        </div>                 
                     </div>
                     <div className='navigation__control'>
                         <button><IconSearch href='#' className='navigation__icon--search' onClick={showShearch}/></button>
@@ -203,7 +324,7 @@ const Navigation = () => {
                         <span className='sidemenu__profile--name'>Nathan Redmond</span>
                         <span className='sidemenu__profile--info'>Computing Science (CMP)</span>
                         <div>
-                            <IconNight className='sidemenu__icon--theme'/>
+                            <IconNight className='sidemenu__icon--theme' onClick={toggleDarkMode}/>
                             <IconWheelchair className='sidemenu__icon--accessibility' onClick={showAccessibility}/>
                             <IconLogout/>
                         </div>
@@ -211,16 +332,7 @@ const Navigation = () => {
 
 
                     {navv}
-                    <a><IconPin className='pin-link'/>Covid Lateral Testing<IconDown/></a>
-                    <a><IconPin className='pin-link'/>Covid Testing - Placement Students<IconDown/></a>
-                    <a><IconPin className='pin-link'/>Help Me With<IconDown/></a>
-                    <a><IconPin className='pin-link'/>Events<IconDown/></a>
-                    <a><IconPin className='pin-link'/>Facuties and Schools<IconDown/></a>
-                    <a><IconPin className='pin-link'/>Divisions<IconDown/></a>
-                    <a><IconPin className='pin-link'/>UEA Systems<IconDown/></a>
-                    <a><IconPin className='pin-link'/>Log an it Call<IconDown/></a>
-                    <a><IconPin className='pin-link'/>Communities<IconDown/></a>
-                    <a><IconPin className='pin-link'/>Directories<IconDown/></a>
+              
                     <a><IconPin className='pin-link'/>Campus Map<IconDown/></a>
 
                 

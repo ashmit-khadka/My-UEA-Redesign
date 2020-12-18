@@ -60,7 +60,7 @@ const Dock = () => {
 
 
     return (
-        <div className='dock'>
+        <div id='dock' className='dock'>
             <div className='dock__content'>
                 {
                     sections.map((section, index) => 

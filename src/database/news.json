@@ -6,14 +6,17 @@
             "description": "The Learning and Teaching Service (LTS) have put together an area on My UEA where you can find details of adjustments and support put in place to help you with your studies. These pages will continue to be updated as and when needed, so students are encouraged to check these pages regularly for up-to-date information.",
             "date": "23 Nov 2020",
             "link": "https://my.uea.ac.uk/news/-/article/covid-19-update",
-            "image": "news-lts-covid-pages.jpg"
+            "image": "news-lts-covid-pages.jpg",
+            "type": "news"
+
         },
         {
             "title": "UEA team victory at Social Storm 2020",
             "description": "Social Storm brings together students from across the world to tackle two Sustainable Development Goals in just 48 hours.",
             "date": "18 Nov 2020",
             "link": "https://www.uea.ac.uk/news/-/article/uea-researchers-named-in-world-s-2020-most-highly-cited-list",
-            "image": "Nadiah Arif.jpg"
+            "image": "Nadiah Arif.jpg",
+            "type": "news"
         },
 
         {
@@ -21,14 +24,16 @@
             "description": "Prof Karen Heywood(ENV) has been recognised for making an outstanding contribution to Antarctic science by having a glacier named after her.",
             "date": "23 Nov 2020",
             "link": "https://my.uea.ac.uk/news/-/article/book-your-rapid-covid-19-test-for-your-return-home-this-winter",
-            "image": "Heywood.jpg"
+            "image": "Heywood.jpg",
+            "type": "news"
         },
         {
             "title": "Gain £1m in environmental funding with The Earthshot Prize",
             "description": "It’s the most prestigious environmental award in history and UEA is one of a handful of UK universities who can submit entries. So if you have a ready-made...",
             "date": "24 Nov 2020",
             "link": "https://my.uea.ac.uk/news/-/article/uea-leads-change-in-tackling-racial-harassment-in-higher-education",
-            "image": "AttenboroughWilliamClimate.jpg"
+            "image": "AttenboroughWilliamClimate.jpg",
+            "type": "news"
         },
 
         {
@@ -36,7 +41,8 @@
             "description": "Leading female academics welcome University’s membership of a national women in science network.",
             "date": "18 Nov 2020",
             "link": "https://www.uea.ac.uk/news/-/article/uea-researchers-named-in-world-s-2020-most-highly-cited-list",
-            "image": "ShengLaura.jpg"
+            "image": "ShengLaura.jpg",
+            "type": "news"
         }
 
     ]

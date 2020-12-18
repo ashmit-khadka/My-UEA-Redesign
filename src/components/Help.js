@@ -3,6 +3,7 @@ import {ReactComponent as IconClose} from '../assets/close.svg'
 import {ReactComponent as IconNext} from '../assets/next.svg'
 import {ReactComponent as IconBack} from '../assets/back.svg'
 import {ReactComponent as IconDot} from '../assets/dot.svg'
+import {ReactComponent as IconHelp} from '../assets/information.svg'
 
 //redux
 import { useSelector, useDispatch } from 'react-redux';
@@ -96,6 +97,8 @@ const Help = () =>
         <div id='model-help' className='model'>
             <div className='model__content'>
                 <div className='model__controls'>
+                    <IconHelp className='button'/>
+                    <h2></h2>
                     <IconClose className='button' onClick={hide}/>
                 </div>
                 <div className='model__help'>

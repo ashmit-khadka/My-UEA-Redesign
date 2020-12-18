@@ -5,6 +5,7 @@
         * {
             background-color: $main-dark;
             color: $main-light;
+            fill: $main-light;
         }
     }
     
@@ -174,6 +175,11 @@
         width: 75px;
         border-radius: 50%;
         background-color: rgb(219, 219, 219);
+
+        & svg {
+            background-color: transparent;
+            fill: $main-dark;
+        }
     }
 }
 

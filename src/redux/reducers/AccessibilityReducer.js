@@ -1,36 +1,20 @@
 //reducer accepts action and changes the state accordingly
 const initialAccessibility = {
-    'dxl': 'false'
+    'language': 'English',
+    'isDy': false
 }
 
-const AccessibilityReducer = (shortcuts = initialShorcuts, action) => {
+const AccessibilityReducer = (settings = initialAccessibility, action) => {
     switch (action.type) {
-        case 'SET_DXL':
-            shortcuts = [...shortcuts, action.payload]
-            console.log('added shortcut..', shortcuts)
-            return shortcuts
+        case 'SET__LANGUAGE':
+            return { ...settings, language: action.payload };
     
-        case 'SET_REGRESSION_POINT':
-            console.log('setting points..', action.payload)
-            shortcuts = action.payload
-            return shortcuts
+        case 'TOGGLE__DY':
+            console.log('toggle dy..')
+            return { ...settings, isDy: action.payload };
 
-        case 'REMOVE_SHORTCUT':
-            console.log('removing shortcut..')
-            shortcuts = shortcuts.filter(item => item.title !== action.payload.title)
-            return shortcuts
-
-        case 'UPDATE_REGRESSION_POINT':
-            return shortcuts.map((point, index) => {
-                if (point.id == action.payload.id) {
-                    console.log('changing value..', action.payload)
-                    return {...point, value: action.payload.value}
-                }
-                return point
-            })
-                    
         default:
-            return shortcuts
+            return settings
     }
 }
 export default AccessibilityReducer

@@ -17,12 +17,12 @@ const AppRouter = () => {
     return (
         <BrowserRouter>
             <Navigation/>
-            <Help/>
             <Status/>
             <Search/>
             <Accessibility/>
             <Shortcuts/>
-            
+            <Help/>
+
             <div className='content'>
                 <Dock/>
 

@@ -1,7 +1,6 @@
 .dock {
 
 
-
     position: absolute;
     left: -220px;
     z-index: 4;
@@ -27,6 +26,17 @@
             top: 0px;
         }
     }
+        &__dark {
+            background-color: $main-dark;
+            border-top: 2px solid $main-pink;
+
+            * svg {
+                fill: $main-light;
+            }
+    
+
+    }
+
 
 }
 
